@@ -1,3 +1,0 @@
-Fri Nov 22 17:14:32 2024
-WARNING: mju_openResource: unknown file 'assets/go1/mjcf/go1.xml'
-
