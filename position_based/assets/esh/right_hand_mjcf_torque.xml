@@ -15,61 +15,61 @@
   </asset>
 
   <worldbody>
-    <geom pos="0.0225 0 0.004" quat="0.707107 0 0 0.707107" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="base_link"/>
+    <geom pos="0.0225 0 0.004" quat="0.707107 0 0 0.707107" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="base_link" contype="0" conaffinity="0"/>
     
-    <!-- Link 0 -->
+    <!-- Link 0, Thumb-->
     <body name="link_0_0" pos="0.0115 0.0205 0.032" quat="0.707107 0 0.707107 0">
       <joint name="base_l00" pos="0 0 0" axis="0 0 1" range="0 1.48353" damping="5"/>
-      <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-      <geom quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_0_0"/>
+      <inertial pos="0 0 0" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+      <geom quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_0_0" contype="0" conaffinity="0"/>
       
       <body name="link_0_1" pos="0 0 0.0215" quat="0 -0.707107 0 -0.707107">
         <joint name="l00_l01" pos="0 0 0" axis="0 0 1" range="0 1.0472" damping="5"/>
-        <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-        <geom quat="0 -1 0 0" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_0_1"/>
+        <inertial pos="0.0013 0.0013 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+        <geom quat="0 -1 0 0" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_0_1" contype="0" conaffinity="0"/>
         
         <body name="link_0_2" pos="0.0155 -0.0711023 -0.0251023" quat="0.299418 -0.640585 0.299418 -0.640585">
           <joint name="l01_l02" pos="0 0 0" axis="0 0 1" range="0 0.785398" damping="5"/>
-          <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-          <geom pos="0 -0.0045 -0.007" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_0_2"/>
+          <inertial pos="0.0026 0.0026 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+          <geom pos="0 -0.0045 -0.007" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_0_2" contype="0" conaffinity="0"/>
         </body>
       </body>
     </body>
 
-    <!-- Link 1 -->
+    <!-- Link 1, Index -->
     <body name="link_1_0" pos="0.0125 0.0335 0.107" quat="0.5 0.5 -0.5 -0.5">
       <joint name="base_l10" pos="0 0 0" axis="0 0 1" range="-0.349066 0.349066" damping="5"/>
-      <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-      <geom quat="0.707107 0.707107 0 0" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_1_0"/>
+      <inertial pos="0.0039 0.0039 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+      <geom quat="0.707107 0.707107 0 0" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_1_0" contype="0" conaffinity="0"/>
       
       <body name="link_1_1" pos="0.0041 0 -0.003" quat="0.707107 0 -0.707107 0">
         <joint name="l10_l11" pos="0 0 0" axis="0 0 1" range="0 1.5708" damping="5"/>
-        <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-        <geom pos="0 0 0.0082" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_1_1"/>
+        <inertial pos="0.0052 0.0052 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+        <geom pos="0 0 0.0082" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_1_1" contype="0" conaffinity="0"/>
         
         <body name="link_1_2" pos="0 0.048 0.0122" quat="1 0 0 0">
           <joint name="l11_l12" pos="0 0 0" axis="0 0 1" range="0 1.8326" damping="5"/>
-          <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-          <geom pos="0 -0.0045 -0.0081" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_1_2"/>
+          <inertial pos="0.0065 0.0065 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+          <geom pos="0 -0.0045 -0.0081" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_1_2" contype="0" conaffinity="0"/>
         </body>
       </body>
     </body>
 
-    <!-- Link 2 -->
+    <!-- Link 2, Middle -->
     <body name="link_2_0" pos="0.0125 0.0085 0.107" quat="0.5 -0.5 0.5 -0.5">
       <joint name="base_l20" pos="0 0 0" axis="0 0 1" range="-0.349066 0.349066" damping="5"/>
-      <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-      <geom quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_2_0"/>
+      <inertial pos="0.0078 0.0078 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+      <geom quat="0.707107 -0.707107 0 0" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_2_0" contype="0" conaffinity="0"/>
       
       <body name="link_2_1" pos="-0.0041 0 0.003" quat="0 -0.707107 0 0.707107">
         <joint name="l20_l21" pos="0 0 0" axis="0 0 1" range="0 1.5708" damping="5"/>
-        <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-        <geom quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_2_1"/>
+        <inertial pos="0.0091 0.0091 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+        <geom quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_2_1" contype="0" conaffinity="0"/>
         
         <body name="link_2_2" pos="0 0.055 0.004" quat="1 0 0 0">
           <joint name="l21_l22" pos="0 0 0" axis="0 0 1" range="0 1.8326" damping="5"/>
-          <inertial pos="0.006956 0.006267 0.131626" mass="0.032" diaginertia="0.0000075 0.0000087 0.00000369"/>
-          <geom pos="0 -0.0045 -0.0081" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_2_2"/>
+          <inertial pos="0.0104 0.0104 0.050" mass="0.70" diaginertia="0.00092 0.00064 0.00058"/>
+          <geom pos="0 -0.0045 -0.0081" quat="0.5 -0.5 -0.5 -0.5" type="mesh" rgba="0.615686 0.811765 0.929412 1" mesh="link_2_2" contype="0" conaffinity="0"/>
         </body>
       </body>
     </body>
@@ -81,7 +81,7 @@
     <!-- Actuators for link_0 -->
     <motor joint="base_l00" gear="1"/>
     <motor joint="l00_l01" gear="1"/>
-    <motor joint="l01_l02" gear="1"/>`
+    <motor joint="l01_l02" gear="1"/>
 
     <!-- Actuators for link_1 -->
     <motor joint="base_l10" gear="1"/>
@@ -93,6 +93,4 @@
     <motor joint="l20_l21" gear="1"/>
     <motor joint="l21_l22" gear="1"/>
   </actuator>
-  
-
 </mujoco>

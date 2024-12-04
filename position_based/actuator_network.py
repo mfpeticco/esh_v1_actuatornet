@@ -133,11 +133,11 @@ def train_actuator_network(xs, ys, actuator_network_path):
 
     in_dims = xs.shape[1]
     out_dims = ys.shape[1]
-    model = build_mlp(in_dim=in_dims, units=32, layers=2, out_dim=out_dims, act='softsign', x_mean=xs_mean, x_std=xs_std, y_mean=ys_mean, y_std=ys_std)
-    lr = 5e-4
+    model = build_mlp(in_dim=in_dims, units=64, layers=2, out_dim=out_dims, act='softsign', x_mean=xs_mean, x_std=xs_std, y_mean=ys_mean, y_std=ys_std)
+    lr = 5e-5
     opt = Adam(model.parameters(), lr=lr, eps=1e-8, weight_decay=0.0)
 
-    epochs = 300
+    epochs = 25
 
     model = model.to(device)
     for epoch in range(epochs):
@@ -197,8 +197,8 @@ def train_actuator_network(xs, ys, actuator_network_path):
 
 
 
-def prepare_data(log_dir_root, log_dir, step=2):
-    log_path = log_dir_root + log_dir + "log.pkl"
+def prepare_data(log_dir_root, log_dir, logname, step=2):
+    log_path = log_dir_root + log_dir + logname
     print(log_path)
     with open(log_path, 'rb') as file:
         jointnames, datas = pkl.load(file)
@@ -247,7 +247,7 @@ def prepare_data(log_dir_root, log_dir, step=2):
                     joint_velocity_next[step:-1, i:i+1]]
 
         xs_joint = torch.cat(xs_joint, dim=1) # (n x 9)
-        ys_joint = torch.cat(ys_joint, dim=1)# (n x 2)
+        ys_joint = torch.cat(ys_joint, dim=1) # (n x 2)
 
         xs += [xs_joint]
         ys += [ys_joint]
@@ -265,7 +265,7 @@ def actuator_network_plot_predictions(xs, datavars, jointnames, actuator_network
     joint_position, joint_velocity, _, joint_position_next, joint_velocity_next = datavars
     joint_state_nextpred = model(xs).detach()
     joint_position_nextpred, joint_velocity_nextpred = joint_state_nextpred[:, ::2], joint_state_nextpred[:, 1::2]
-    plot_length = 300
+    plot_length = len(joint_position_nextpred)
 
     timesteps = np.array(range(len(joint_position_nextpred))) / 50.0
     timesteps = timesteps[1:plot_length]

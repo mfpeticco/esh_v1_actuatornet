@@ -14,7 +14,7 @@ viewer._hide_overlay = True
 viewer._render_every_frame = True
 
 
-def generate_smooth_positions(joint_ranges, num_timesteps, time_step):
+def generate_smooth_positions(joint_ranges, num_timesteps, control_point_count):
     """
     Generate a smooth trajectory of joint positions with a fixed time step, 
     ensuring consistent speed regardless of the number of time steps.
@@ -23,9 +23,9 @@ def generate_smooth_positions(joint_ranges, num_timesteps, time_step):
     - joint_positions: numpy array of shape (num_timesteps, n_joints) containing joint positions.
     """
     n_joints = joint_ranges.shape[0]
-    total_duration = num_timesteps * time_step
+    total_duration = num_timesteps
 
-    control_point_count = max(5, num_timesteps // 500) # Generate a proportional number of control points 
+    control_point_count = max(5, control_point_count) # Generate a proportional number of control points 
     control_times = np.linspace(0, total_duration, control_point_count) # Control times should span the entire duration
     time = np.linspace(0, total_duration, num_timesteps)
 
@@ -103,13 +103,13 @@ joint_ranges = np.array([
     [0, 1.8326]      # l21_l22
 ])
 
-kp = [300] * num_dof
+kp = [10] * num_dof
 kd = [4] * num_dof
 dq_des = [0] * num_dof # desired velocity
 tau_ff = [0] * num_dof # feed-forward torque
 
-num_steps = 10000
-example_trajectory = generate_smooth_positions(joint_ranges, num_steps, 1.0)
+num_steps = 20000
+example_trajectory = generate_smooth_positions(joint_ranges, num_steps, 20)
 joint_data = []
 for t in range(num_steps):
     # q_des = np.random.uniform(joint_ranges[:, 0], joint_ranges[:, 1])
@@ -141,7 +141,7 @@ today = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
 
 # print(f"Data saved to {filename}")
 
-filename = os.path.join(output_dir, "log.pkl")
+filename = os.path.join(output_dir, "logtrain.pkl")
 with open(filename, 'wb') as f:
     pickle.dump(log_data, f)
 
